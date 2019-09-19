@@ -22,5 +22,4 @@ def predict_user(user1_name, user2_name, tweet_text, cache=None):
     log_reg.fit(embeddings, labels)
 
     tweet_embedding = BASILICA.embed_sentence(tweet_text, model='twitter')
-    import pdb; pdb.set_trace()
     return log_reg.predict_proba(np.array([tweet_embedding]))[:, 1]

@@ -14,6 +14,8 @@ flask-sqlalchemy = "*"
 tweepy = "*"
 python-decouple = "*"
 basilica = "*"
+psycopg2 = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.7"

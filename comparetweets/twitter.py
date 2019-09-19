@@ -1,6 +1,6 @@
+from decouple import config
 import basilica
 import tweepy
-from decouple import config
 from .models import DB, Tweet, User
 
 TWITTER_AUTH = tweepy.OAuthHandler(config('TWITTER_CONSUMER_KEY'),
@@ -50,3 +50,16 @@ def add_or_update_user(username):
         raise e
     else:
         DB.session.commit()
+
+def add_users(users):
+    """
+    Add/update a list of users (strings of user names).
+    May take awhile, so run "offline" (interactive shell).
+    """
+    for user in users:
+        add_or_update_user(user)
+
+def update_all_users():
+    """Update all Tweets for all Users in the User table."""
+    for user in User.query.all():
+        add_or_update_user(user.name)
