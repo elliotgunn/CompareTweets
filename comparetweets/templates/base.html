@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-        <!-- comment like this - add - {{title}} -->
-    <title>TwitOff! - {{title}}</title>
-    <link rel="stylesheet" href="https://unpkg.com/picnic"/>
+    <title>CompareTweets! - {{title}}</title>
+    <!-- CSS, keywords, metadata goes here-->
+    <link rel="stylesheet" href="https://unpkg.com/picnic">
   </head>
+
   <body>
-    <h1>TwitOff!! PAGE 1! </h1>
-      <p> Content goes here... </p>
-      <u1>
-        {% for user in users %}
-        <li> {{ user.name}} </li>
-        {% endfor %}
-      </u1>
+    <h1>CompareTweets!</h1>
+
+      {% block content %}
+      <form action="/user" method="post">
+        <input type="text" name="user_name" placeholder="User to add">
+        <input type="submit" value="Add User">
+        <input type="text" name="user_name" placeholder="User to add">
+        <input type="submit" value="Add User">
+        <input type="text" name="tweet_text" placeholder="Tweet text to predict">
+        <input class='success' type="submit" value="Compare Users">
+      </form>
+      {% endblock %}
   </body>
 </html>
