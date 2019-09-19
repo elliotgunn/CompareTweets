@@ -8,6 +8,11 @@ verify_ssl = true
 [packages]
 python-dotenv = "*"
 scikit-learn = "*"
+gunicorn = "*"
+flask = "*"
+flask-sqlalchemy = "*"
+tweepy = "*"
+python-decouple = "*"
 
 [requires]
 python_version = "3.7"
